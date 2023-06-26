@@ -15,7 +15,7 @@ void main()
 	fflush(stdin);	fflush(stdout);
 	scanf("%d",&n);
 
-	if(n>0)
+	if(n>=0)
 	{
 		for(i=1;i<=n;i++)
 				sum*=i;
@@ -23,6 +23,4 @@ void main()
 	}
 	else if(n<0)
 		printf("Error!!! Factorial of negative number doesn't exist.");
-	else
-		printf("Factorial = 1");
 }
