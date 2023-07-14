@@ -10,18 +10,22 @@
 
 int main()
 {
-	char str[100],rev[100];
+	char str[100];
+	char temp;
 	int i,j=0;
 
 	printf("Enter the string  : ");
 	fflush(stdin);	fflush(stdout);
 	gets(str);
 
-	for(i=strlen(str);i>0;i--)
+	for(i=strlen(str)-1;i>=strlen(str)/2;i--)
 	{
-		rev[j]=str[i-1];
+		temp=str[i];
+		str[i]=str[j];
+		str[j]=temp;
+		printf("%s\n",str);
 		j++;
 	}
-	rev[j]='\0';
-	printf("Reverse string is : %s", rev);
+
+	printf("Reverse string is : %s", str);
 }
