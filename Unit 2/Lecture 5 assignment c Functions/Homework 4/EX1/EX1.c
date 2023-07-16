@@ -23,7 +23,7 @@ int main(void)
 	}
 	else
 	{
-		printf("Prime numbers between 10 and 30 are:");
+		printf("Prime numbers between %d and %d are:",num1,num2);
 		for(i=num1+1;i<num2;i++)
 		{
 			if(isprime(i))
