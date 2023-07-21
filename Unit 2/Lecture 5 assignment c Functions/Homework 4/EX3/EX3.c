@@ -13,7 +13,7 @@ void rev(char str[],char rev[],int str_len);
 int main(void)
 {
 	char str[100],reve[100];
-	printf("Enter a sentence: ");
+	printf("Enter a sentence:  ");
 	fflush(stdin);	fflush(stdout);
 	gets(str);
 	rev(str,reve,strlen(str)-1);
