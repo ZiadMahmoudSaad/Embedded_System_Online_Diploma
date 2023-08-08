@@ -1,6 +1,6 @@
 #include "uart.h"
 
-unsigned char str[100]="Learn-in-depth";
+unsigned char str[100]="Learn-in-depth:<Ziad>";
 unsigned char const str2[100]="Learn-in-depth";
 
 void main(void)
