@@ -1,0 +1,85 @@
+app.o Sections
+--------------
+
+$ arm-none-eabi-objdump.exe -h app.o
+
+app.o:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000018  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000064  00000000  00000000  0000004c  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  000000b0  2**0
+                  ALLOC
+  3 .rodata       00000064  00000000  00000000  000000b0  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .comment      00000012  00000000  00000000  00000114  2**0
+                  CONTENTS, READONLY
+  5 .ARM.attributes 00000032  00000000  00000000  00000126  2**0
+                  CONTENTS, READONLY
+
+====================================================================
+
+uart.o Sections
+---------------
+
+$ arm-none-eabi-objdump.exe -h uart.o
+
+uart.o:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000050  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000084  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000084  2**0
+                  ALLOC
+  3 .comment      00000012  00000000  00000000  00000084  2**0
+                  CONTENTS, READONLY
+  4 .ARM.attributes 00000032  00000000  00000000  00000096  2**0
+                  CONTENTS, READONLY
+
+====================================================================
+
+startup.o Sections
+------------------
+
+$ arm-none-eabi-objdump.exe -h startup.o
+
+startup.o:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000010  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000044  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000044  2**0
+                  ALLOC
+  3 .ARM.attributes 00000022  00000000  00000000  00000044  2**0
+                  CONTENTS, READONLY
+
+====================================================================
+
+learn-in-depth.elf Sections
+---------------------------
+
+$ arm-none-eabi-objdump.exe -h learn-in-depth.elf
+
+learn-in-depth.elf:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .startup      00000010  00010000  00010000  00008000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .text         000000cc  00010010  00010010  00008010  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .data         00000064  000100dc  000100dc  000080dc  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  3 .ARM.attributes 0000002e  00000000  00000000  00008140  2**0
+                  CONTENTS, READONLY
+  4 .comment      00000011  00000000  00000000  0000816e  2**0
+                  CONTENTS, READONLY

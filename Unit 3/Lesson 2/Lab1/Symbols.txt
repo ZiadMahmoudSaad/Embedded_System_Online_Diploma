@@ -1,3 +1,6 @@
+app.o Symbols
+-------------
+
 $ arm-none-eabi-nm.exe app.o
 00000000 T main
 00000000 D str
@@ -6,10 +9,16 @@ $ arm-none-eabi-nm.exe app.o
 
 ==========================================
 
+uart.o Symbols
+--------------
+
 $ arm-none-eabi-nm.exe uart.o
 00000000 T uart_send_str
 
 ==========================================
+
+startup.o Symbols
+-----------------
 
 $ arm-none-eabi-nm.exe startup.o
          U main
@@ -17,6 +26,9 @@ $ arm-none-eabi-nm.exe startup.o
 00000008 t stop
 
 ==========================================
+
+learn-in-depth.o Symbols
+------------------------
 
 $ arm-none-eabi-nm.exe learn-in-depth.elf
 00010010 T main
