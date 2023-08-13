@@ -1,0 +1,58 @@
+main.o Symbols
+--------------
+
+$ arm-none-eabi-nm.exe main.o
+00000003 C bss_variable
+00000000 R const_variables
+00000004 D g_variables
+00000000 T main
+00000000 D PR_ORD
+
+===================================================================
+
+main.o Symbols
+--------------
+
+$ arm-none-eabi-nm.exe startup.o
+         U _E_bss
+         U _E_DATA
+         U _E_text
+         U _S_bss
+         U _S_DATA
+         U _stack_top
+00000084 W Bus_Fault
+00000084 T Default_Handler
+00000084 W H_Fault_Handler
+         U main
+00000084 W MM_Fault_Handler
+00000084 W NMI_Handler
+00000000 T Reset_Handler
+00000084 W Usage_Fault_Handler
+00000000 D vectors
+
+===================================================================
+
+learn-in-depth-cortex-m3.elf Symbols
+------------------------------------
+
+$ arm-none-eabi-nm.exe learn-in-depth-cortex-m3.elf
+20000008 B _E_bss
+20000008 D _E_DATA
+0800012b T _E_text
+20000008 B _S_bss
+20000000 D _S_DATA
+20001008 B _stack_top
+20001008 B bss_variable
+0800011c W Bus_Fault
+08000128 T const_variables
+0800011c T Default_Handler
+20000004 D g_variables
+0800011c W H_Fault_Handler
+0800001c T main
+0800011c W MM_Fault_Handler
+0800011c W NMI_Handler
+20000000 D PR_ORD
+08000098 T Reset_Handler
+0800011c W Usage_Fault_Handler
+08000000 T vectors
+
