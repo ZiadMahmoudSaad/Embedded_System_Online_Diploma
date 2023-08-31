@@ -32,7 +32,6 @@ typedef volatile unsigned int vuint32_t ;
 #define GPIOA_ODR *(volatile uint32_t *)(GPIOA_BASE + 0x0C)
 
 #define RCC_BASE 0x40021000
-#define RCC_APB2ENR *(volatile uint32_t *)(RCC_BASE + 0x18)
 #define RCC_CFGR *(volatile uint32_t *)(RCC_BASE + 0x04)
 #define RCC_APB2ENR *(volatile uint32_t *)(RCC_BASE + 0x18)
 
