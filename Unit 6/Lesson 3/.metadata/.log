@@ -1,0 +1,113 @@
+!SESSION 2023-08-31 01:28:19.527 -----------------------------------------------
+eclipse.buildId=Version 1.4.0
+java.version=1.8.0_252
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-08-31 01:29:48.279
+!MESSAGE Log4j initialized with config file D:\Embedded_System_Online_Diploma\Unit 6\Lesson 3\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-08-31 01:29:51.266
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2023-08-31 01:29:51.775
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-08-31 01:32:38.607
+!MESSAGE Indexed 'Lab1' (0 sources, 0 headers) in 0.004 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-08-31 01:32:41.377
+!MESSAGE Indexed 'Lab1' (2 sources, 0 headers) in 0.02 sec: 67 declarations; 43 references; 10 unresolved inclusions; 0 syntax errors; 24 unresolved names (18%)
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2023-08-31 01:34:16.543
+!MESSAGE An error occurred while collecting items to be installed
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2023-08-31 01:34:16.543
+!MESSAGE session context was:(profile=STM32CubeIDE, phase=org.eclipse.equinox.internal.p2.engine.phases.Collect, operand=, action=).
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2023-08-31 01:34:16.543
+!MESSAGE Problems downloading artifact: osgi.bundle,org.eclipse.equinox.common,3.17.100.v20230202-1341.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 2 2023-08-31 01:34:16.543
+!MESSAGE Error reading signed content:C:\Users\ADMINI~1\AppData\Local\Temp\signatureFile6129501841109443898.jar
+!STACK 0
+java.security.NoSuchAlgorithmException: An error occurred while processing the signatures for the file: C:\Users\ADMINI~1\AppData\Local\Temp\signatureFile6129501841109443898.jar
+	at org.eclipse.osgi.internal.signedcontent.SignedBundleHook.getSignedContent(SignedBundleHook.java:231)
+	at org.eclipse.equinox.internal.p2.artifact.repository.SignatureVerifier.verifyContent(SignatureVerifier.java:84)
+	at org.eclipse.equinox.internal.p2.artifact.repository.SignatureVerifier.verify(SignatureVerifier.java:66)
+	at org.eclipse.equinox.internal.p2.artifact.repository.SignatureVerifier.close(SignatureVerifier.java:114)
+	at org.eclipse.equinox.internal.provisional.p2.artifact.repository.processing.ProcessingStep.close(ProcessingStep.java:92)
+	at org.eclipse.equinox.internal.p2.artifact.processors.checksum.MessageDigestProcessingStep.close(MessageDigestProcessingStep.java:58)
+	at org.eclipse.equinox.internal.provisional.p2.artifact.repository.processing.ProcessingStep.close(ProcessingStep.java:92)
+	at org.eclipse.equinox.internal.p2.artifact.processors.checksum.MessageDigestProcessingStep.close(MessageDigestProcessingStep.java:58)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.reportStatus(SimpleArtifactRepository.java:1248)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:645)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:776)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.getArtifact(MirrorRequest.java:319)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:289)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:225)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:155)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:759)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:64)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.security.NoSuchAlgorithmException: No algorithm found for 1.2.840.113549.1.1.12
+	at org.eclipse.osgi.internal.signedcontent.PKCS7Processor.findEncryption(PKCS7Processor.java:78)
+	at org.eclipse.osgi.internal.signedcontent.PKCS7Processor.processSignerInfos(PKCS7Processor.java:347)
+	at org.eclipse.osgi.internal.signedcontent.PKCS7Processor.<init>(PKCS7Processor.java:155)
+	at org.eclipse.osgi.internal.signedcontent.SignatureBlockProcessor.processSigner(SignatureBlockProcessor.java:98)
+	at org.eclipse.osgi.internal.signedcontent.SignatureBlockProcessor.process(SignatureBlockProcessor.java:65)
+	at org.eclipse.osgi.internal.signedcontent.SignedBundleFile.initializeSignedContent(SignedBundleFile.java:47)
+	at org.eclipse.osgi.internal.signedcontent.SignedBundleHook.getSignedContent(SignedBundleHook.java:223)
+	... 17 more
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2023-08-31 01:34:16.552
+!MESSAGE Problems downloading artifact: osgi.bundle,org.eclipse.text.quicksearch,1.1.500.v20230129-1959.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 2 2023-08-31 01:34:16.552
+!MESSAGE Error reading signed content:C:\Users\ADMINI~1\AppData\Local\Temp\signatureFile7564137014230335254.jar
+!STACK 0
+java.security.NoSuchAlgorithmException: An error occurred while processing the signatures for the file: C:\Users\ADMINI~1\AppData\Local\Temp\signatureFile7564137014230335254.jar
+	at org.eclipse.osgi.internal.signedcontent.SignedBundleHook.getSignedContent(SignedBundleHook.java:231)
+	at org.eclipse.equinox.internal.p2.artifact.repository.SignatureVerifier.verifyContent(SignatureVerifier.java:84)
+	at org.eclipse.equinox.internal.p2.artifact.repository.SignatureVerifier.verify(SignatureVerifier.java:66)
+	at org.eclipse.equinox.internal.p2.artifact.repository.SignatureVerifier.close(SignatureVerifier.java:114)
+	at org.eclipse.equinox.internal.provisional.p2.artifact.repository.processing.ProcessingStep.close(ProcessingStep.java:92)
+	at org.eclipse.equinox.internal.p2.artifact.processors.checksum.MessageDigestProcessingStep.close(MessageDigestProcessingStep.java:58)
+	at org.eclipse.equinox.internal.provisional.p2.artifact.repository.processing.ProcessingStep.close(ProcessingStep.java:92)
+	at org.eclipse.equinox.internal.p2.artifact.processors.checksum.MessageDigestProcessingStep.close(MessageDigestProcessingStep.java:58)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.reportStatus(SimpleArtifactRepository.java:1248)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:645)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:776)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.getArtifact(MirrorRequest.java:319)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:289)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:225)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:155)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:759)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:64)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.security.NoSuchAlgorithmException: No algorithm found for 1.2.840.113549.1.1.12
+	at org.eclipse.osgi.internal.signedcontent.PKCS7Processor.findEncryption(PKCS7Processor.java:78)
+	at org.eclipse.osgi.internal.signedcontent.PKCS7Processor.processSignerInfos(PKCS7Processor.java:347)
+	at org.eclipse.osgi.internal.signedcontent.PKCS7Processor.<init>(PKCS7Processor.java:155)
+	at org.eclipse.osgi.internal.signedcontent.SignatureBlockProcessor.processSigner(SignatureBlockProcessor.java:98)
+	at org.eclipse.osgi.internal.signedcontent.SignatureBlockProcessor.process(SignatureBlockProcessor.java:65)
+	at org.eclipse.osgi.internal.signedcontent.SignedBundleFile.initializeSignedContent(SignedBundleFile.java:47)
+	at org.eclipse.osgi.internal.signedcontent.SignedBundleHook.getSignedContent(SignedBundleHook.java:223)
+	... 17 more
+!SESSION 2023-08-31 15:16:48.033 -----------------------------------------------
+eclipse.buildId=Version 1.4.0
+java.version=1.8.0_252
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-08-31 15:16:58.902
+!MESSAGE Log4j initialized with config file D:\Embedded_System_Online_Diploma\Unit 6\Lesson 3\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-08-31 15:17:04.674
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2023-08-31 15:17:05.103
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-08-31 15:18:22.432
+!MESSAGE Indexed 'Lab1' (0 sources, 0 headers) in 0.004 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-08-31 15:18:23.908
+!MESSAGE Indexed 'Lab1' (3 sources, 0 headers) in 0.03 sec: 69 declarations; 45 references; 10 unresolved inclusions; 0 syntax errors; 24 unresolved names (17%)
