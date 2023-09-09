@@ -1,0 +1,280 @@
+
+Lab2 atmega32.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001a2  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  000001f6  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  000001f6  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000228  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000030  00000000  00000000  00000264  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000670  00000000  00000000  00000294  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000057f  00000000  00000000  00000904  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000026f  00000000  00000000  00000e83  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000054  00000000  00000000  000010f4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000031d  00000000  00000000  00001148  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000047  00000000  00000000  00001465  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000020  00000000  00000000  000014ac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   8:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  10:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  14:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  18:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  1c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  20:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  24:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  28:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  2c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  30:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  34:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  38:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  3c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  40:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  44:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  48:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  4c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  50:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 9c 00 	call	0x138	; 0x138 <main>
+  64:	0c 94 cf 00 	jmp	0x19e	; 0x19e <_exit>
+
+00000068 <__bad_interrupt>:
+  68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000006c <GPIO_init>:
+}
+
+void GPIO_init()
+{
+	//pin_D4
+	DDRD_R	|=	1<<4 ;
+  6c:	81 b3       	in	r24, 0x11	; 17
+  6e:	80 61       	ori	r24, 0x10	; 16
+  70:	81 bb       	out	0x11, r24	; 17
+	PORTD_R &= ~(1<<4) ;
+  72:	82 b3       	in	r24, 0x12	; 18
+  74:	8f 7e       	andi	r24, 0xEF	; 239
+  76:	82 bb       	out	0x12, r24	; 18
+	//pin_D5
+	DDRD_R	|=	1<<5 ;
+  78:	81 b3       	in	r24, 0x11	; 17
+  7a:	80 62       	ori	r24, 0x20	; 32
+  7c:	81 bb       	out	0x11, r24	; 17
+	PORTD_R &= ~(1<<5) ;
+  7e:	82 b3       	in	r24, 0x12	; 18
+  80:	8f 7d       	andi	r24, 0xDF	; 223
+  82:	82 bb       	out	0x12, r24	; 18
+	//pin_D6
+	DDRD_R	|=	1<<6 ;
+  84:	81 b3       	in	r24, 0x11	; 17
+  86:	80 64       	ori	r24, 0x40	; 64
+  88:	81 bb       	out	0x11, r24	; 17
+	PORTD_R &= ~(1<<6) ;
+  8a:	82 b3       	in	r24, 0x12	; 18
+  8c:	8f 7b       	andi	r24, 0xBF	; 191
+  8e:	82 bb       	out	0x12, r24	; 18
+	//pin_D7
+	DDRD_R	|=	1<<7 ;
+  90:	81 b3       	in	r24, 0x11	; 17
+  92:	80 68       	ori	r24, 0x80	; 128
+  94:	81 bb       	out	0x11, r24	; 17
+	PORTD_R &= ~(1<<7) ;
+  96:	82 b3       	in	r24, 0x12	; 18
+  98:	8f 77       	andi	r24, 0x7F	; 127
+  9a:	82 bb       	out	0x12, r24	; 18
+  9c:	08 95       	ret
+
+0000009e <wait>:
+}
+
+void wait(vuint32_t time)
+{
+  9e:	cf 93       	push	r28
+  a0:	df 93       	push	r29
+  a2:	cd b7       	in	r28, 0x3d	; 61
+  a4:	de b7       	in	r29, 0x3e	; 62
+  a6:	2c 97       	sbiw	r28, 0x0c	; 12
+  a8:	0f b6       	in	r0, 0x3f	; 63
+  aa:	f8 94       	cli
+  ac:	de bf       	out	0x3e, r29	; 62
+  ae:	0f be       	out	0x3f, r0	; 63
+  b0:	cd bf       	out	0x3d, r28	; 61
+  b2:	69 87       	std	Y+9, r22	; 0x09
+  b4:	7a 87       	std	Y+10, r23	; 0x0a
+  b6:	8b 87       	std	Y+11, r24	; 0x0b
+  b8:	9c 87       	std	Y+12, r25	; 0x0c
+	vuint32_t i,j;
+	for(i=0;i<time;i++)
+  ba:	19 82       	std	Y+1, r1	; 0x01
+  bc:	1a 82       	std	Y+2, r1	; 0x02
+  be:	1b 82       	std	Y+3, r1	; 0x03
+  c0:	1c 82       	std	Y+4, r1	; 0x04
+  c2:	24 c0       	rjmp	.+72     	; 0x10c <wait+0x6e>
+	for(j=0;j<255;j++);
+  c4:	1d 82       	std	Y+5, r1	; 0x05
+  c6:	1e 82       	std	Y+6, r1	; 0x06
+  c8:	1f 82       	std	Y+7, r1	; 0x07
+  ca:	18 86       	std	Y+8, r1	; 0x08
+  cc:	0b c0       	rjmp	.+22     	; 0xe4 <wait+0x46>
+  ce:	8d 81       	ldd	r24, Y+5	; 0x05
+  d0:	9e 81       	ldd	r25, Y+6	; 0x06
+  d2:	af 81       	ldd	r26, Y+7	; 0x07
+  d4:	b8 85       	ldd	r27, Y+8	; 0x08
+  d6:	01 96       	adiw	r24, 0x01	; 1
+  d8:	a1 1d       	adc	r26, r1
+  da:	b1 1d       	adc	r27, r1
+  dc:	8d 83       	std	Y+5, r24	; 0x05
+  de:	9e 83       	std	Y+6, r25	; 0x06
+  e0:	af 83       	std	Y+7, r26	; 0x07
+  e2:	b8 87       	std	Y+8, r27	; 0x08
+  e4:	8d 81       	ldd	r24, Y+5	; 0x05
+  e6:	9e 81       	ldd	r25, Y+6	; 0x06
+  e8:	af 81       	ldd	r26, Y+7	; 0x07
+  ea:	b8 85       	ldd	r27, Y+8	; 0x08
+  ec:	8f 3f       	cpi	r24, 0xFF	; 255
+  ee:	91 05       	cpc	r25, r1
+  f0:	a1 05       	cpc	r26, r1
+  f2:	b1 05       	cpc	r27, r1
+  f4:	60 f3       	brcs	.-40     	; 0xce <wait+0x30>
+}
+
+void wait(vuint32_t time)
+{
+	vuint32_t i,j;
+	for(i=0;i<time;i++)
+  f6:	89 81       	ldd	r24, Y+1	; 0x01
+  f8:	9a 81       	ldd	r25, Y+2	; 0x02
+  fa:	ab 81       	ldd	r26, Y+3	; 0x03
+  fc:	bc 81       	ldd	r27, Y+4	; 0x04
+  fe:	01 96       	adiw	r24, 0x01	; 1
+ 100:	a1 1d       	adc	r26, r1
+ 102:	b1 1d       	adc	r27, r1
+ 104:	89 83       	std	Y+1, r24	; 0x01
+ 106:	9a 83       	std	Y+2, r25	; 0x02
+ 108:	ab 83       	std	Y+3, r26	; 0x03
+ 10a:	bc 83       	std	Y+4, r27	; 0x04
+ 10c:	49 81       	ldd	r20, Y+1	; 0x01
+ 10e:	5a 81       	ldd	r21, Y+2	; 0x02
+ 110:	6b 81       	ldd	r22, Y+3	; 0x03
+ 112:	7c 81       	ldd	r23, Y+4	; 0x04
+ 114:	89 85       	ldd	r24, Y+9	; 0x09
+ 116:	9a 85       	ldd	r25, Y+10	; 0x0a
+ 118:	ab 85       	ldd	r26, Y+11	; 0x0b
+ 11a:	bc 85       	ldd	r27, Y+12	; 0x0c
+ 11c:	48 17       	cp	r20, r24
+ 11e:	59 07       	cpc	r21, r25
+ 120:	6a 07       	cpc	r22, r26
+ 122:	7b 07       	cpc	r23, r27
+ 124:	78 f2       	brcs	.-98     	; 0xc4 <wait+0x26>
+	for(j=0;j<255;j++);
+ 126:	2c 96       	adiw	r28, 0x0c	; 12
+ 128:	0f b6       	in	r0, 0x3f	; 63
+ 12a:	f8 94       	cli
+ 12c:	de bf       	out	0x3e, r29	; 62
+ 12e:	0f be       	out	0x3f, r0	; 63
+ 130:	cd bf       	out	0x3d, r28	; 61
+ 132:	df 91       	pop	r29
+ 134:	cf 91       	pop	r28
+ 136:	08 95       	ret
+
+00000138 <main>:
+
+void GPIO_init();
+void wait(vuint32_t time);
+int main(void)
+{
+	GPIO_init();
+ 138:	0e 94 36 00 	call	0x6c	; 0x6c <GPIO_init>
+	while (1)
+	{
+		PORTD_R |= 1<<5 ;
+ 13c:	82 b3       	in	r24, 0x12	; 18
+ 13e:	80 62       	ori	r24, 0x20	; 32
+ 140:	82 bb       	out	0x12, r24	; 18
+		wait(100);
+ 142:	64 e6       	ldi	r22, 0x64	; 100
+ 144:	70 e0       	ldi	r23, 0x00	; 0
+ 146:	80 e0       	ldi	r24, 0x00	; 0
+ 148:	90 e0       	ldi	r25, 0x00	; 0
+ 14a:	0e 94 4f 00 	call	0x9e	; 0x9e <wait>
+		PORTD_R &= ~(1<<5) ;
+ 14e:	82 b3       	in	r24, 0x12	; 18
+ 150:	8f 7d       	andi	r24, 0xDF	; 223
+ 152:	82 bb       	out	0x12, r24	; 18
+		
+		PORTD_R |= 1<<6 ;
+ 154:	82 b3       	in	r24, 0x12	; 18
+ 156:	80 64       	ori	r24, 0x40	; 64
+ 158:	82 bb       	out	0x12, r24	; 18
+		wait(100);
+ 15a:	64 e6       	ldi	r22, 0x64	; 100
+ 15c:	70 e0       	ldi	r23, 0x00	; 0
+ 15e:	80 e0       	ldi	r24, 0x00	; 0
+ 160:	90 e0       	ldi	r25, 0x00	; 0
+ 162:	0e 94 4f 00 	call	0x9e	; 0x9e <wait>
+		PORTD_R &= ~(1<<6) ;
+ 166:	82 b3       	in	r24, 0x12	; 18
+ 168:	8f 7b       	andi	r24, 0xBF	; 191
+ 16a:	82 bb       	out	0x12, r24	; 18
+		
+		PORTD_R |= 1<<7 ;
+ 16c:	82 b3       	in	r24, 0x12	; 18
+ 16e:	80 68       	ori	r24, 0x80	; 128
+ 170:	82 bb       	out	0x12, r24	; 18
+		wait(100);
+ 172:	64 e6       	ldi	r22, 0x64	; 100
+ 174:	70 e0       	ldi	r23, 0x00	; 0
+ 176:	80 e0       	ldi	r24, 0x00	; 0
+ 178:	90 e0       	ldi	r25, 0x00	; 0
+ 17a:	0e 94 4f 00 	call	0x9e	; 0x9e <wait>
+		PORTD_R &= ~(1<<7) ;
+ 17e:	82 b3       	in	r24, 0x12	; 18
+ 180:	8f 77       	andi	r24, 0x7F	; 127
+ 182:	82 bb       	out	0x12, r24	; 18
+		
+		PORTD_R |= 1<<4 ;
+ 184:	82 b3       	in	r24, 0x12	; 18
+ 186:	80 61       	ori	r24, 0x10	; 16
+ 188:	82 bb       	out	0x12, r24	; 18
+		wait(100);
+ 18a:	64 e6       	ldi	r22, 0x64	; 100
+ 18c:	70 e0       	ldi	r23, 0x00	; 0
+ 18e:	80 e0       	ldi	r24, 0x00	; 0
+ 190:	90 e0       	ldi	r25, 0x00	; 0
+ 192:	0e 94 4f 00 	call	0x9e	; 0x9e <wait>
+		PORTD_R &= ~(1<<4) ;
+ 196:	82 b3       	in	r24, 0x12	; 18
+ 198:	8f 7e       	andi	r24, 0xEF	; 239
+ 19a:	82 bb       	out	0x12, r24	; 18
+ 19c:	cf cf       	rjmp	.-98     	; 0x13c <main+0x4>
+
+0000019e <_exit>:
+ 19e:	f8 94       	cli
+
+000001a0 <__stop_program>:
+ 1a0:	ff cf       	rjmp	.-2      	; 0x1a0 <__stop_program>
