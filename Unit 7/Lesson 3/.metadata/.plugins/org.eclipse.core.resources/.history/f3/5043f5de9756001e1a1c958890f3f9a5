@@ -1,0 +1,102 @@
+/*
+ * Stm32F103x6.h
+ *
+ *  Created on: Sep 19, 2023
+ *      Author: Ziad Mahmoud Saad
+ */
+
+#ifndef INC_STM32F103X6_H_
+#define INC_STM32F103X6_H_
+
+//-----------------------------
+//Base addresses for Memories
+//-----------------------------
+
+#define FLASH_Mem_BASE							0x08000000UL
+#define SYSTEM_Mem_BASE 						0x1FFFF800UL
+#define SRAM_BASE								0x20000000UL
+#define Peripherals_BASE						0x40000000UL
+#define Cortex_M3_internal_Peripherals_BASE		0xE0000000UL
+
+//=========================================================
+
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+//Base addresses for BUS Peripherals
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+
+//-----------------------------
+//Base addresses for AHB Peripherals
+//-----------------------------
+
+#define RCC_BASE 								( Peripherals_BASE + 0x00021000UL )
+
+//-----------------------------
+//Base addresses for APB2 Peripherals
+//-----------------------------
+
+//GPIOs
+//All Packages: 		A fully included
+#define PORTA 									( Peripherals_BASE + 0x00010800UL )
+
+//VFQFPN36 Package:		B partial included
+//Other Packages: 		B fully included
+#define PORTB 									( Peripherals_BASE + 0x00010C00UL )
+
+//LQFP48 Package: 		C partial included
+//VFQFPN36 Package:		C not included
+//Other Packages:		C fully included
+
+#define PORTC 									( Peripherals_BASE + 0x00011000UL )
+
+//LQFP48 Package: 		D partial included
+//LFBGA100 Package:		D fully included
+//UFBG100 Package:		D fully included
+//LQFP100 Package:		D fully included
+//TFBGA64 Package: 		D partial included
+//LQFP64 Package: 		D pin 2 only included
+//VFQFPN36 Package: 	D pin 0,1 only included
+#define PORTD									( Peripherals_BASE + 0x00011400UL )
+
+//LFBGA100 Package:		E fully included
+//UFBG100 Package:		E fully included
+//LQFP100 Package:		E fully included
+//Other Packages:		E not included
+#define PORTE 									( Peripherals_BASE + 0x00011800UL )
+
+#define AFIO									( Peripherals_BASE + 0x00010000UL )
+
+#define EXTI									( Peripherals_BASE + 0x00010400UL )
+//-----------------------------
+//Base addresses for APB1 Peripherals
+//-----------------------------
+
+//=========================================================
+
+//-*-*-*-*-*-*-*-*-*-*-*-
+//Peripheral register:
+//-*-*-*-*-*-*-*-*-*-*-*
+
+//------------------
+//Peripheral register: RCC
+//------------------
+
+typedef struct
+{
+	volatile uint32_t
+}RCC_TypeDef;
+
+//------------------
+//Peripheral register: GPIO
+//------------------
+
+
+//------------------
+//Peripheral register: AFIO
+//------------------
+
+//------------------
+//Peripheral register: EXTI
+//------------------
+
+#endif /* INC_STM32F103X6_H_ */

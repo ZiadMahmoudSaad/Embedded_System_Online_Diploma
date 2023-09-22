@@ -1,0 +1,44 @@
+/*
+ * Stm32F103C6_GPIO_Driver.c
+ *
+ *  Created on: Sep 19, 2023
+ *      Author: Ziad Mahmoud Saad
+ */
+
+//-*-*-*-*-*
+//Includes
+//-*-*-*-*-*
+
+#include "Stm32F103C6_GPIO_Driver.h"
+
+
+//=========================================================
+
+
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+//Macros Configuration References
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+
+
+
+
+
+//=========================================================
+
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+//APIs Supported by "MCAL GPIO DRIVER"
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+uint8_t Get_CRLH_Position(uint16_t PinNum){
+
+}
+
+
+void GPIO_Init (GPIO_TypeDef *GPIOx, GPIO_PIN_Config* PinConfig )
+{
+	volatile uint32_t* ConfigReg = NULL ;
+
+	ConfigReg =(PinConfig->pin_number < GPIO_PIN_8 )? &GPIOx->CRL : &GPIOx->CRH ;
+	*ConfigReg &= ~(0xF & << Get_CRLH_Position(pinc));
+}

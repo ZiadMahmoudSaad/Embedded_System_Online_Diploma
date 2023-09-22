@@ -1,0 +1,177 @@
+/*
+ * Stm32F103C6_GPIO_Driver.c
+ *
+ *  Created on: Sep 19, 2023
+ *      Author: Ziad Mahmoud Saad
+ */
+
+//-*-*-*-*-*
+//	Includes
+//-*-*-*-*-*
+
+#include "Stm32F103C6_GPIO_Driver.h"
+
+
+//=========================================================
+
+
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+//	Macros Configuration References
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+
+
+
+
+
+//=========================================================
+
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+//	APIs Supported by "MCAL GPIO DRIVER"
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+uint8_t Get_CRLH_Position(uint16_t PinNum){
+	switch (PinNum) {
+	case GPIO_PIN_0:
+		return 0;
+		break;
+
+	case GPIO_PIN_1:
+		return 4;
+		break;
+
+	case GPIO_PIN_2:
+		return 8;
+		break;
+
+	case GPIO_PIN_3:
+		return 12;
+		break;
+
+	case GPIO_PIN_4:
+		return 16;
+		break;
+
+	case GPIO_PIN_5:
+		return 20;
+		break;
+
+	case GPIO_PIN_6:
+		return 24;
+		break;
+
+	case GPIO_PIN_7:
+		return 28;
+		break;
+
+	case GPIO_PIN_8:
+		return 0;
+		break;
+
+	case GPIO_PIN_9:
+		return 4;
+		break;
+
+	case GPIO_PIN_10:
+		return 8;
+		break;
+
+	case GPIO_PIN_11:
+		return 12;
+		break;
+
+	case GPIO_PIN_12:
+		return 16;
+		break;
+
+	case GPIO_PIN_13:
+		return 20;
+		break;
+
+	case GPIO_PIN_14:
+		return 24;
+		break;
+
+	case GPIO_PIN_15:
+		return 28;
+		break;
+	}
+	return 0;
+}
+
+
+
+//***********************************
+
+/* @Fn			-GPIO_Init
+* @brief 		-Initializes the GPIOx PINy according to the specified parameters in the PinConfig
+* @param [in] 	-GPIOx: where x can be (A..E depending on device used) to select the GPIO peripheral
+* @param [in] 	-PinConfig pointer to a GPIO_PinConfig_t structure that contains the configuration information for the specified GPIO PIN.
+* @retval 		-none
+* Note			-Stm32F103x8 MCU has GPIO A,B,C,D,E Modules
+*/
+
+
+void GPIO_Init (GPIO_TypeDef *GPIOx, GPIO_PIN_Config* PinConfig )
+{
+	// Port configuration register low (GPIOx_CRL) Configure PINS from 0 >>> 7
+	// Port configuration register High (GPIOx_CRH) Configure PINS from 8 >>> 15
+	volatile uint32_t* ConfigReg = NULL ;
+	uint8_t Config_PIN = 0 ;
+
+	ConfigReg =(PinConfig->pin_number < GPIO_PIN_8 )? &GPIOx->CRL : &GPIOx->CRH ;
+
+	// Clear CNF & MODE
+	(*ConfigReg) &= ~(0xF <<Get_CRLH_Position(PinConfig->pin_number)) ;
+
+	// PIN is Output
+	if((PinConfig->pin_mode == GPIO_MODE_Output_PUSH_PULL) || (PinConfig->pin_mode == GPIO_MODE_Output_OPEN_DRAIN) ||(PinConfig->pin_mode == GPIO_MODE_Output_AF_PUSH_PULL) ||(PinConfig->pin_mode == GPIO_MODE_Output_AF_OPEN_DRAIN))
+	{
+		// Set CNF & MODE
+		Config_PIN = ((((PinConfig->pin_mode -4 ) << 2) | (PinConfig->pin_speed)) & 0xF);
+
+	}
+	else //PIN is Input
+	{
+		// Input Analog || Input floating
+		if((PinConfig->pin_mode == GPIO_MODE_Analog) || (PinConfig->pin_mode == GPIO_MODE_Floating_Input))
+		{
+			// Set CNF & MODE
+			Config_PIN = ((PinConfig->pin_mode << 2) & 0xF) ;
+		}
+		else // Input pull-down || Input pull-up
+		{
+			// Set CNF & MODE
+			Config_PIN = ((GPIO_MODE_Input_PUll_UP << 2) & 0xF) ;
+
+			if(PinConfig->pin_mode == GPIO_MODE_Input_PUll_DOWN)// Input pull-down
+			{
+				//PxODR = 0 Input pull-down :Table 20. Port bit configuration table
+				GPIOx->ODR &= ~( PinConfig->pin_number ) ;
+			}
+			else // Input pull-up
+			{
+				//PxODR = 1 Input pull-up :Table 20. Port bit configuration table
+				GPIOx->ODR |=  PinConfig->pin_number ;
+			}
+		}
+	}
+
+	// write on the CRL or CRH
+	*ConfigReg |= (Config_PIN <<Get_CRLH_Position(PinConfig->pin_number));
+}
+
+
+
+//***********************************
+
+/* @Fn				-GPIO_DeInit
+* @brief 			-Reset all GPIO Registers
+* @param [in] 	-GPIOx: where x can be (A..E depending on device used) to select the GPIO peripheral
+* @retval 		-none
+* Note			-none
+*/
+
+void GPIO_DeInit (GPIO_TypeDef *GPIOx )
+{
+
+}

@@ -1,0 +1,23 @@
+14:22:49 **** Incremental Build of configuration Debug for project LCD_KEYBAD ****
+make -j12 all 
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Embedded_System_Online_Diploma/Unit 7/Lesson 3/Section/LCD_KEYBAD/Stm32F103C6_Drivers/KEYPAD_Driver" -I"D:/Embedded_System_Online_Diploma/Unit 7/Lesson 3/Section/LCD_KEYBAD/Stm32F103C6_Drivers/LCD_Driver" -I"D:/Embedded_System_Online_Diploma/Unit 7/Lesson 3/Section/LCD_KEYBAD/Stm32F103C6_Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 -o "LCD_KEYBAD.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Embedded_System_Online_Diploma\Unit 7\Lesson 3\Section\LCD_KEYBAD\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD_KEYBAD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD_KEYBAD.elf
+ 
+arm-none-eabi-objdump -h -S  LCD_KEYBAD.elf  > "LCD_KEYBAD.list"
+arm-none-eabi-objcopy  -O ihex  LCD_KEYBAD.elf  "LCD_KEYBAD.hex"
+arm-none-eabi-objcopy  -O binary  LCD_KEYBAD.elf  "LCD_KEYBAD.bin"
+arm-none-eabi-size   LCD_KEYBAD.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3248	     40	   1576	   4864	   1300	LCD_KEYBAD.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD_KEYBAD.hex
+Finished building: LCD_KEYBAD.list
+Finished building: LCD_KEYBAD.bin
+ 
+ 
+ 
+
+14:22:49 Build Finished. 0 errors, 0 warnings. (took 617ms)
+

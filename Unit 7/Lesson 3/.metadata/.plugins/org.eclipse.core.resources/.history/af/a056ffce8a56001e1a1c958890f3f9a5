@@ -1,0 +1,81 @@
+/*
+ * Stm32F103x6.h
+ *
+ *  Created on: Sep 19, 2023
+ *      Author: Ziad Mahmoud Saad
+ */
+
+#ifndef INC_STM32F103X6_H_
+#define INC_STM32F103X6_H_
+
+//-----------------------------
+//Base addresses for Memories
+//-----------------------------
+
+#define FLASH_Mem_BASE							0x08000000UL
+#define SYSTEM_Mem_BASE 						0x1FFFF800UL
+#define SRAM_BASE								0x20000000UL
+#define Peripherals_BASE						0x40000000UL
+#define Cortex_M3_internal_Peripherals_BASE		0xE0000000UL
+
+//=========================================================
+
+//-----------------------------
+//Base addresses for BUS Peripherals
+//-----------------------------
+
+//-----------------------------
+//Base addresses for AHB Peripherals
+//-----------------------------
+
+#define RCC_BASE 								0x40021000UL
+
+//-----------------------------
+//Base addresses for APB2 Peripherals
+//-----------------------------
+
+//GPIOs
+//LQFP48 Package: 		A fully included
+//LFBGA100 Package:		A fully included
+//UFBG100 Package:		A fully included
+//LQFP100 Package:		A fully included
+//TFBGA64 Package:		A fully included
+//LQFP64  Package:		A fully included
+//VFQFPN36  Package:	A fully included
+#define PORTA 									0x40010800UL
+//LQFP48 Package: 		B fully included
+//LFBGA100 Package:		B fully included
+//UFBG100 Package:		B fully included
+//LQFP100 Package:		B fully included
+//TFBGA64 Package:		B fully included
+//LQFP64 Package:		B fully included
+#define PORTB 									0x40010800UL
+//LQFP48 Package: 		C partial included
+//LFBGA100 Package:		C fully included
+//UFBG100 Package:		C fully included
+//LQFP100 Package:		C fully included
+//TFBGA64 Package:		C fully included
+//LQFP64 Package:		C fully included
+#define PORTC 									0x40010800UL
+//LQFP48 Package: 		D partial included
+//LFBGA100 Package:		D fully included
+//UFBG100 Package:		D fully included
+//LQFP100 Package:		D fully included
+//TFBGA64 Package: 		D partial included
+//LQFP64 Package: 		D pin 2 only included
+#define PORTD									0x40010800UL
+//LQFP48 Package:		E not included
+//LFBGA100 Package:		E fully included
+//UFBG100 Package:		E fully included
+//LQFP100 Package:		E fully included
+//TFBGA64 Package:		E not included
+//LQFP64 Package:		E not included
+#define PORTE 									0x40010800UL
+
+
+
+
+
+
+
+#endif /* INC_STM32F103X6_H_ */

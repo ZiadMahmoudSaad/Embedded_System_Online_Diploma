@@ -1,0 +1,100 @@
+/*
+ * Stm32F103C6_GPIO_Driver.c
+ *
+ *  Created on: Sep 19, 2023
+ *      Author: Ziad Mahmoud Saad
+ */
+
+//-*-*-*-*-*
+//Includes
+//-*-*-*-*-*
+
+#include "Stm32F103C6_GPIO_Driver.h"
+
+
+//=========================================================
+
+
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+//Macros Configuration References
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+
+
+
+
+
+//=========================================================
+
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+//APIs Supported by "MCAL GPIO DRIVER"
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+uint8_t Get_CRLH_Position(uint16_t PinNum){
+	switch (PinNum) {
+	case GPIO_PIN_0:
+		return 0;
+		break;
+	case GPIO_PIN_1:
+		return 4;
+		break;
+	case GPIO_PIN_2:
+		return 8;
+		break;
+	case GPIO_PIN_3:
+		return 12;
+		break;
+	case GPIO_PIN_4:
+		return 16;
+		break;
+	case GPIO_PIN_5:
+		return 20;
+		break;
+	case GPIO_PIN_6:
+		return 24;
+		break;
+	case GPIO_PIN_7:
+		return 28;
+		break;
+	case GPIO_PIN_8:
+		return 0;
+		break;
+	case GPIO_PIN_9:
+		return 4;
+		break;
+	case GPIO_PIN_10:
+		return 8;
+		break;
+	case GPIO_PIN_11:
+		return 12;
+		break;
+	case GPIO_PIN_12:
+		return 16;
+		break;
+	case GPIO_PIN_13:
+		return 20;
+		break;
+	case GPIO_PIN_14:
+		return 24;
+		break;
+	case GPIO_PIN_15:
+		return 28;
+		break;
+	}
+	return 0;
+}
+
+
+void GPIO_Init (GPIO_TypeDef *GPIOx, GPIO_PIN_Config* PinConfig )
+{
+	volatile uint32_t* ConfigReg = NULL ;
+
+	ConfigReg =(PinConfig->pin_number < GPIO_PIN_8 )? &GPIOx->CRL : &GPIOx->CRH ;
+	//Clear PINs CNF MODE
+	(*ConfigReg) &= ~(0xF <<Get_CRLH_Position(PinConfig->pin_number));
+	if((PinConfig->pin_mode == GPIO_MODE_Output_PUSH_PULL) || (PinConfig->pin_mode == GPIO_MODE_Output_OPEN_DRAIN) ||(PinConfig->pin_mode == GPIO_MODE_Output_AF_PUSH_PULL) ||(PinConfig->pin_mode == GPIO_MODE_Output_AF_OPEN_DRAIN))
+	{
+
+
+	}
+
+}

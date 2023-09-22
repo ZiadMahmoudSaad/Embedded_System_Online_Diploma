@@ -1,0 +1,43 @@
+/*
+ * Stm32F103x6.h
+ *
+ *  Created on: Sep 19, 2023
+ *      Author: Ziad Mahmoud Saad
+ */
+
+#ifndef INC_STM32F103X6_H_
+#define INC_STM32F103X6_H_
+
+//-----------------------------
+//Base addresses for Memories
+//-----------------------------
+
+#define FLASH_Mem_BASE							0x08000000UL
+#define SYSTEM_Mem_BASE 						0x1FFFF800UL
+#define SRAM_BASE								0x20000000UL
+#define Peripherals_BASE						0x40000000UL
+#define Cortex_M3_internal_Peripherals_BASE		0xE0000000UL
+
+//=========================================================
+
+//-----------------------------
+//Base addresses for BUS Peripherals
+//-----------------------------
+
+//-----------------------------
+//Base addresses for AHB Peripherals
+//-----------------------------
+
+#define RCC_BASE 								0x40021000UL
+
+
+
+
+
+
+
+
+
+
+
+#endif /* INC_STM32F103X6_H_ */

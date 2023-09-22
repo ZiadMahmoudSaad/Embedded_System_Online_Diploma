@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Drivers/Stm32F103C6_Drivers/Stm32F103_GPIO_Driver&apos; to &apos;Stm32F103C6_GPIO_Driver&apos;" description="Rename resource &apos;Stm32F103_GPIO_Driver&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Stm32F103C6_Drivers/Stm32F103_GPIO_Driver" name="Stm32F103C6_GPIO_Driver" stamp="1695083096225" updateReferences="true"/>
+</session>
