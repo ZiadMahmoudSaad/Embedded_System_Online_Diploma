@@ -1,0 +1,8 @@
+"Src/main.o"
+"Src/syscalls.o"
+"Src/sysmem.o"
+"Startup/startup_stm32f103c6tx.o"
+"Stm32F103C6_Drivers/HAL/KEYPAD_DRIVER/KEYPAD.o"
+"Stm32F103C6_Drivers/HAL/LCD_DRIVER/LCD.o"
+"Stm32F103C6_Drivers/MCAL/EXTI/Stm32F103C6_EXTI_Driver.o"
+"Stm32F103C6_Drivers/MCAL/GPIO/Stm32F103C6_GPIO_Driver.o"
